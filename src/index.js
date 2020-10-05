@@ -13,9 +13,10 @@ ReactDOM.render(
 */
 
 ReactDOM.render(
-  <h1>Hello, React!</h1>,
+  <h1>Hello, My React page!</h1>,
   document.getElementById('root')
 );
+//npm run build
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
