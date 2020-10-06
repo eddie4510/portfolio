@@ -12,9 +12,28 @@ ReactDOM.render(
 );
 */
 
+function NavBar() {
+
+}
+
+function Main() {
+  return <div>
+    <h1>Hi, my playground</h1>
+    <p>
+      I'm baby kale chips affogato ennui lumbersexual, williamsburg paleo quinoa
+      iceland normcore tumeric. Kitsch coloring book retro, seitan schlitz
+      tattooed biodiesel vexillologist neutra. Synth mumblecore deep v, umami
+      selfies normcore gluten-free snackwave. Seitan ramps drinking vinegar
+      venmo keytar, humblebrag VHS post-ironic tacos godard pour-over.
+    </p>
+  </div>
+}
+
+const el = <Main />;
+
 ReactDOM.render(
-  <h1>Hi, my playground</h1>,
-  document.getElementById('root')
+  el,
+  document.getElementById('main')
 );
 
 
