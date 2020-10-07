@@ -5,6 +5,7 @@ import './index.css';
 import './sideBar.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import postIndex from "./content/postIndex.json";
 import post1 from "./content/post.md";
 import post2 from "./content/post2.md";
 /*
@@ -17,8 +18,8 @@ ReactDOM.render(
 */
 
 
-function NavBar() {
 
+function NavBar() {
   return <nav className="navbar">
     <ul className="navbar-nav">
       <li>
@@ -42,6 +43,52 @@ function NavBar() {
     </ul>
   </nav>
 }
+//declare navigation element
+let navEl = <NavBar />;
+
+class Post {
+  constructor(id, title, category, src, thumbnail) {
+    this.id = id;
+    this.title = title;
+    this.category = category;
+    this.src = src;
+    this.thumbnail = thumbnail;
+  }
+}
+
+function addPostsByCategory(category) {
+  let posts = [];
+  for (let i = 0; i < postIndex.posts.length; i++) {
+    if (postIndex.posts[i]["category"] == category) {
+      
+      let newPost = new Post(
+        postIndex.posts[i]["id"],
+        postIndex.posts[i]["title"],
+        postIndex.posts[i]["category"],
+        postIndex.posts[i]["src"],
+        postIndex.posts[i]["thumbnail"]);
+      posts.push(newPost);
+    }
+  }
+  return posts;
+}
+
+function MarkdownList(props) {
+  const arr = props.data;
+  const listItems = arr.map((post, index) =>
+    <li key={index}>
+      {post.title}
+      <img src={require(post.thumbnail+"")} alt={post.title}/>
+    </li> 
+  );
+  return <ul>{listItems}</ul>;
+}
+
+function GetPageByCategory(props) {
+  const posts=addPostsByCategory(props.category);
+  return <div>The category is {props.category} <MarkdownList data={posts} /></div>
+}
+
 
 //implement endsWith function
 if (!String.prototype.endsWith) {
@@ -53,22 +100,22 @@ if (!String.prototype.endsWith) {
   };
 }
 
+//init main element
 var mainEl = '';
 function checkUrl() {
-  let url = window.location+"";
+  let url = window.location + "";
   if (url.endsWith("game")) {
-
-    mainEl = <ReactMarkdown source={post1} />;
+    //mainEl = <ReactMarkdown source={post1} />;
+    mainEl = <GetPageByCategory category="game" />;
   }
   else if (url.endsWith("web")) {
-    mainEl = <ReactMarkdown source={post2} />;
+    //mainEl = <ReactMarkdown source={post2} />;
+    mainEl = <GetPageByCategory category="web" />;
   }
 }
-
 checkUrl();
 
 
-let navEl = <NavBar />;
 ReactDOM.render(
   navEl,
   document.getElementById('nav')
