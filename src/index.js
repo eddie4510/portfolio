@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactMarkdown from 'react-markdown';
+import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import './index.css';
 import './sideBar.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import postIndex from "./content/postIndex.json";
-import post1 from "./content/post.md";
-import post2 from "./content/post2.md";
+import Nav from "./components/Nav";
+import ShowPosts from "./components/ShowPosts";
+import Post from "./components/Post";
+
+
+
+
+
 /*
 ReactDOM.render(
   <React.StrictMode>
@@ -17,113 +23,39 @@ ReactDOM.render(
 );
 */
 
-
-
-function NavBar() {
-  return <nav className="navbar">
-    <ul className="navbar-nav">
-      <li>
-        <a href="/" className="logo">
-          <span>PORTFOLIO</span>
-          <i id="logo" className="fas fa-angle-double-right"></i>
-        </a>
-      </li>
-      <li className="nav-item">
-        <a href="web" className="nav-link">
-          <i className="fas fa-globe"></i>
-          <span className="link-text">WEB</span>
-        </a>
-      </li>
-      <li className="nav-item">
-        <a href="game" className="nav-link">
-          <i className="fas fa-gamepad"></i>
-          <span className="link-text">GAME</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-}
-//declare navigation element
-let navEl = <NavBar />;
-
-class Post {
-  constructor(id, title, category, src, thumbnail) {
-    this.id = id;
-    this.title = title;
-    this.category = category;
-    this.src = src;
-    this.thumbnail = thumbnail;
-  }
+function getId(){
+  //eg  /1 ->1
+  let path=window.location.pathname;
+  let id=path.substring(path.lastIndexOf('/')+1);
+  return id;
 }
 
-function addPostsByCategory(category) {
-  let posts = [];
-  for (let i = 0; i < postIndex.posts.length; i++) {
-    if (postIndex.posts[i]["category"] == category) {
-      
-      let newPost = new Post(
-        postIndex.posts[i]["id"],
-        postIndex.posts[i]["title"],
-        postIndex.posts[i]["category"],
-        postIndex.posts[i]["src"],
-        postIndex.posts[i]["thumbnail"]);
-      posts.push(newPost);
-    }
-  }
-  return posts;
+function Homepage(props) {
+  return <div className="content">
+    <h1>{props.name}</h1>
+  </div>;
 }
 
-function MarkdownList(props) {
-  const arr = props.data;
-  const listItems = arr.map((post, index) =>
-    <li key={index}>
-      {post.title}
-      <img src={require(post.thumbnail+"")} alt={post.title}/>
-    </li> 
+//mainEl = <ReactMarkdown source={post2} />;
+function Main() {
+  return (
+    <Router>
+      <Nav />
+      <Switch>
+        <Route path="/portfolio" render={(props) => <Homepage {...props} name="WELCOME!" />} />
+
+        <Route exact path="/web" render={(props) => <ShowPosts {...props} category="web" />} />
+        
+        <Route exact path="/game" component={(props) => <ShowPosts {...props} category="game" />} />
+
+        <Route path="/:id" component={(props) => <Post {...props} id={getId()} />} />
+      </Switch>
+    </Router>
   );
-  return <ul>{listItems}</ul>;
 }
-
-function GetPageByCategory(props) {
-  const posts=addPostsByCategory(props.category);
-  return <div>The category is {props.category} <MarkdownList data={posts} /></div>
-}
-
-
-//implement endsWith function
-if (!String.prototype.endsWith) {
-  String.prototype.endsWith = function (search, this_len) {
-    if (this_len === undefined || this_len > this.length) {
-      this_len = this.length;
-    }
-    return this.substring(this_len - search.length, this_len) === search;
-  };
-}
-
-//init main element
-var mainEl = '';
-function checkUrl() {
-  let url = window.location + "";
-  if (url.endsWith("game")) {
-    //mainEl = <ReactMarkdown source={post1} />;
-    mainEl = <GetPageByCategory category="game" />;
-  }
-  else if (url.endsWith("web")) {
-    //mainEl = <ReactMarkdown source={post2} />;
-    mainEl = <GetPageByCategory category="web" />;
-  }
-}
-checkUrl();
-
 
 ReactDOM.render(
-  navEl,
-  document.getElementById('nav')
-);
-
-
-ReactDOM.render(
-  mainEl,
+  <Main/>,
   document.getElementById('main')
 );
 

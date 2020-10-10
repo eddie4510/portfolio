@@ -4,43 +4,65 @@
             "id": 0,
             "title": "deeper_deeper",
             "category": "game",
-            "src": "post.md",
-            "thumbnail": "./content/thumbnails/1.png"
+            "thumbnail": "content/thumbnails/0.png",
+            "tags": [
+                "RPG",
+                "Unity",
+                "Android",
+                "Japanese"
+            ]
         },
         {
             "id": 1,
             "title": "wonderland",
             "category": "game",
-            "src": "post2.md",
-            "thumbnail": "./content/thumbnails/2.png"
+            "thumbnail": "content/thumbnails/1.png",
+            "tags": [
+                "ACT",
+                "PUZ",
+                "Unreal Engine 4",
+                "PC"
+            ]
         },
         {
             "id": 2,
             "title": "shopping website 1",
             "category": "web",
-            "src": "",
-            "thumbnail": "./content/thumbnails/1.png"
+            "thumbnail": "content/thumbnails/2.png",
+            "tags": [
+                "php",
+                "smarty"
+            ]
         },
         {
             "id": 3,
             "title": "shopping website 2",
             "category": "web",
-            "src": "",
-            "thumbnail": "./content/thumbnails/1.png"
+            "thumbnail": "content/thumbnails/3.png",
+            "tags": [
+                "php",
+                "JQuery"
+            ]
         },
         {
             "id": 4,
-            "title": "budget query/update system",
+            "title": "budget inquiry system",
             "category": "web",
-            "src": "",
-            "thumbnail": "./content/thumbnails/1.png"
+            "thumbnail": "content/thumbnails/4.png",
+            "tags": [
+                "php"
+            ]
         },
         {
             "id": 5,
             "title": "simple forum",
             "category": "web",
-            "src": "",
-            "thumbnail": "./content/thumbnails/1.png"
+            "thumbnail": "content/thumbnails/5.png",
+            "tags": [
+                "Java",
+                "Spring MVC",
+                "forum"
+            ]
         }
     ]
 }

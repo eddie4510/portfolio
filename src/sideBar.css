@@ -28,9 +28,10 @@
   }
   
 
-  
   .navbar{
+    z-index:10;
     position:fixed;
+    left:0;
     background-color: var(--bg-primary);
     transition:width 200ms ease;
   }
@@ -80,10 +81,11 @@
   .navbar:hover #logo{
     transform: rotate(-180deg);
   }
+
   /*Small Screen*/
   @media only screen and (max-width:600px){
     .navbar{
-      bottom:0;
+      bottom:0px;
       width:100vw;
       height:5rem;
     }
@@ -91,10 +93,8 @@
       flex-direction: row;
       justify-content: center;
     }
-    #main{
-      margin:1rem;
-    }
   
+
     #logo{
       display:none;
     }
