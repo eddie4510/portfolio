@@ -1,3 +1,12 @@
+:root{
+  --text-primary:#b6b6b6;
+  --text-secnodary:#ececec;
+  --bg-primary:#23232e;
+  --bg-secondary:#141418;
+  --icon-primary:#5CA5F2;
+  --icon-secondary:#5FBDDB;
+}
+
 html{
   background-color:var(--bg-primary);
 }
@@ -64,14 +73,19 @@ html{
   text-align: center;
   display:flex;
   word-break: break-all;
+  transition: border-width 0.6s linear;
+}
+
+.article:hover{
+  border-top:dotted;
+  border-width: 20px;
+  border-color:var(--icon-primary);
 }
 
 .article-link{
   text-decoration: none;
   color:var(--icon-primary);
-  background-color: rgb(255, 252, 226);
   border-radius: 10px;
-  padding:10px;
   flex-grow:4;
 }
 
@@ -83,15 +97,14 @@ html{
   border:solid;
   border-width: 1px;
   border-color:black;
+  border-radius: 10%;
 }
-
 
 
 .title{
-  font-size: 14px;
+  display:block;
   font-weight: bold;
 }
-
 
  /*Small Screen*/
 @media only screen and (max-width:600px){

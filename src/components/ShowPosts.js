@@ -35,7 +35,7 @@ export default function ShowPosts(props) {
     <SplideSlide className="article" key={index}>
       <Link to={'/' + post.id} className="article-link">
         <img src={require('../' + post.thumbnail)} alt={post.title} />
-        <span className="title">{post.title}</span><br/><br/>
+        <span className="title">{post.title}</span><br/>
         <span className="tags">{post.tags.toString()}</span>
       </Link>
     </SplideSlide>
