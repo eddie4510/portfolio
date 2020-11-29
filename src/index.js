@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import './index.css';
 import './sideBar.css';
+import './post.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Nav from "./components/Nav";
@@ -30,9 +31,10 @@ function getId(){
   return id;
 }
 
-function Homepage(props) {
-  return <div className="content">
-    <h1>{props.name}</h1>
+function Homepage() {
+  return <div className="home">
+    <h1>Welcome</h1>
+    <p>This is the portfolio of the guy who wants to make things interesting.</p>
   </div>;
 }
 
@@ -42,7 +44,7 @@ function Main() {
     <Router>
       <Nav />
       <Switch>
-        <Route path="/portfolio" render={(props) => <Homepage {...props} name="WELCOME!" />} />
+        <Route path="/portfolio" render={(props) => <Homepage {...props}/>} />
 
         <Route exact path="/web" render={(props) => <ShowPosts {...props} category="web" />} />
         

@@ -10,7 +10,11 @@ class Post {
     this.title = title;
     this.category = category;
     this.thumbnail = thumbnail;
-    this.tags=tags;
+    this.tags = tags;
+  }
+
+  getTags() {
+    return this.tags;
   }
 }
 
@@ -30,7 +34,9 @@ export default function ShowPosts(props) {
     }
     return posts;
   }
+
   const posts = getPostsByCategory(props.category);
+  /*
   const listItems = posts.map((post, index) =>
     <SplideSlide className="article" key={index}>
       <Link to={'/' + post.id} className="article-link">
@@ -41,6 +47,22 @@ export default function ShowPosts(props) {
     </SplideSlide>
   );
   return <Splide className="articlesWrap">{listItems}</Splide>;
+  */
+  const listItems = posts.map((post, index) =>
+    <article className="post" key={index}>
+      <Link to={'/' + post.id} className="article-link">
+        <img src={require('../' + post.thumbnail)} alt={post.title} />
+        <span className="title">{post.title}</span>
+
+        <div className="tags">
+          {post.tags.map(tag => (
+            <span className="tag">{tag} <br/></span>
+          ))}
+        </div>
+      </Link>
+    </article>
+  );
+  return <div className="post-list">{listItems}</div>
 }
 
 //<img src={require(post.thumbnail + "")} alt={post.title} />
