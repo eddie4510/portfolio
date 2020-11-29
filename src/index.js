@@ -1,28 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactMarkdown from 'react-markdown';
 import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import './index.css';
 import './sideBar.css';
 import './post.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Nav from "./components/Nav";
 import ShowPosts from "./components/ShowPosts";
 import Post from "./components/Post";
-
-
-
-
-
-/*
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-*/
 
 function getId(){
   //eg  /1 ->1

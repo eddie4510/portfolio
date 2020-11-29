@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
 
 import post0 from "../content/posts/post0.md";
@@ -20,19 +19,19 @@ export default function Post(props) {
 
     switch (id) {
         case "0":
-            return showPost(post0); break;
+            return showPost(post0);
         case "1":
-            return showPost(post1); break;
+            return showPost(post1);
         case "2":
-            return showPost(post2); break;
+            return showPost(post2);
         case "3":
-            return showPost(post3); break;
+            return showPost(post3);
         case "4":
-            return showPost(post4); break;
+            return showPost(post4);
         case "5":
-            return showPost(post5); break;
+            return showPost(post5);
         default:
-            return showPost(postN); break;
+            return showPost(postN);
     }
 
 

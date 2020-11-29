@@ -1,8 +1,8 @@
 import React from 'react';
 import postIndex from "../content/postIndex.json";
 import { Link } from "react-router-dom";
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css';
+//import { Splide, SplideSlide } from '@splidejs/react-splide';
+//import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css';
 
 class Post {
   constructor(id, title, category, thumbnail, tags) {
@@ -50,7 +50,7 @@ export default function ShowPosts(props) {
   */
   const listItems = posts.map((post, index) =>
     <article className="post" key={index}>
-      <Link to={'/' + post.id} className="article-link">
+      <Link to={'/' + post.id} className="post-link">
         <img src={require('../' + post.thumbnail)} alt={post.title} />
         <span className="title">{post.title}</span>
 

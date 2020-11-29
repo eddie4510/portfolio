@@ -23,7 +23,7 @@
     position: relative;
     flex-direction: column;
     height:350px;
-    min-width:250px;
+    min-width:300px;
     padding:1.5rem;
 
     border-radius: 16px;
@@ -39,7 +39,7 @@
 }
 
 .post:hover~.post,.post:active~.post{
-    transform:translateX(250px);
+    transform:translateX(200px);
 }
 
 .post:not(:first-child){
@@ -57,25 +57,51 @@
 .post span.title{
     position: absolute;
     bottom:20px;
+    left:30px;
     transform: scale(1.1);
+    transition: .3s;
 }
-.post div.tags{
+
+.post span.title:hover{
+    background: linear-gradient(90deg,#ff8a00,#e52e71);
+    text-shadow: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.post div.tags {
     position: absolute;
     bottom:60px;
     left:0px;
-    transform: scale(0.8);
-    padding:2px;
+    line-height: 2;
 }
 
 .post span.tag{
-    border:solid;
+    font-style: normal;
+    font-weight: 700;
+    font-size: .5rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    font-size: .66rem;
+    border: 3px solid #28242f;
     border-radius: 5px;
-    margin:1px;
-    padding:1px;
+    padding: .2rem .85rem .25rem;
+    position: relative;
 }
 
 .post span.tag:hover{
-    color:var(--text-primary)
+    background: linear-gradient(90deg,#ff8a00,#e52e71);
+    text-shadow: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    border-color: var(--text-primary);
+}
+
+.post-link{
+    text-decoration: none;
+    color:var(--icon-primary);
 }
 
 /*Small Screen*/

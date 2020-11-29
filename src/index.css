@@ -74,7 +74,7 @@ html{
   font-family: "Ubuntu";
   margin:30px;
 }
-
+/*
 .articlesWrap{
   position: absolute;
   left:6rem;
@@ -83,7 +83,6 @@ html{
   width:60%;
   padding:100px;
 }
-
 
 .article{
   padding:20px;
@@ -116,6 +115,7 @@ html{
   display:block;
   font-weight: bold;
 }
+*/
 
  /*Small Screen*/
 @media only screen and (max-width:600px){
